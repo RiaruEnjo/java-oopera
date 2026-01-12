@@ -1,4 +1,4 @@
-class MusicalShow extends Show {
+public class MusicalShow extends Show {
     protected String musicAuthor;
     protected String librettoText;
 
@@ -11,10 +11,7 @@ class MusicalShow extends Show {
     public void printLibretto() {
         System.out.println("Либретто: " + librettoText);
     }
-    public String getMusicAuthor() {
-        return musicAuthor;
-    }
-    public String getLibrettoText() {
-        return librettoText;
-    }
+
+    public String getMusicAuthor() { return musicAuthor; }
+    public String getLibrettoText() { return librettoText; }
 }

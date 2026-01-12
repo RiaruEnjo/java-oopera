@@ -1,4 +1,6 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class Show {
     protected String title;
@@ -18,19 +20,19 @@ public class Show {
 
     public void printActorsList() {
         System.out.println("Актёры:");
+        if (listOfActors.isEmpty()) {
+            System.out.println("Нет актёров");
+            return;
+        }
         for (Actor actor : listOfActors) {
             System.out.println(actor.getName() + " " + actor.getSurname() + " (" + actor.getHeight() + ")");
         }
     }
 
     public void addActor(Actor newActor) {
-        for (Actor existing : listOfActors) {
-            if (existing.getName().equals(newActor.getName()) &&
-                    existing.getSurname().equals(newActor.getSurname()) &&
-                    existing.getHeight() == newActor.getHeight()) {
-                System.out.println("Предупреждение: актёр уже есть в списке!");
-                return;
-            }
+        if (listOfActors.contains(newActor)) {
+            System.out.println("Предупреждение: актёр уже есть в списке!");
+            return;
         }
         listOfActors.add(newActor);
         System.out.println("Актёр добавлен.");
@@ -38,16 +40,34 @@ public class Show {
 
     public void replaceActor(Actor newActor, String oldSurname) {
         boolean found = false;
+        int count = 0;
+
+        for (Actor actor : listOfActors) {
+            if (actor.getSurname().equals(oldSurname)) {
+                count++;
+            }
+        }
+
+        if (count == 0) {
+            System.out.println("Предупреждение: актёр с фамилией " + oldSurname + " не найден!");
+            return;
+        }
+        if (count > 1) {
+            System.out.println("Предупреждение: найдено " + count + " актёров с фамилией " + oldSurname);
+            return;
+        }
+
         for (int i = 0; i < listOfActors.size(); i++) {
             if (listOfActors.get(i).getSurname().equals(oldSurname)) {
                 listOfActors.set(i, newActor);
-                found = true;
                 System.out.println("Актёр заменён.");
+                found = true;
                 break;
             }
         }
+
         if (!found) {
-            System.out.println("Предупреждение: актёр с фамилией " + oldSurname + " не найден!");
+            System.out.println("Ошибка: актёр не заменён!");
         }
     }
 
@@ -62,14 +82,5 @@ public class Show {
     }
     public List<Actor> getListOfActors() {
         return new ArrayList<>(listOfActors);
-    }
-
-    public static void main(String[] args) {
-        Director dir = new Director("Иван", "Петров", "муж", 5);
-        Show show = new Show("Гамлет", 120, dir);
-        Actor act1 = new Actor("Олег", "Табаков", "муж", 175);
-        show.addActor(act1);
-        show.printDirectorInfo();
-        show.printActorsList();
     }
 }
