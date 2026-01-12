@@ -2,11 +2,11 @@ public class Theatre {
     public static void main(String[] args) {
         System.out.println("=== ТЕАТР ===");
 
-        Director dir = new Director("Иван", "Петров", Gender.МУЖ, 5);
+        Director dir = new Director("Иван", "Петров", Gender.MALE, 5);
 
-        Actor actor1 = new Actor("Олег", "Табаков", Gender.МУЖ, 175);
-        Actor actor2 = new Actor("Мария", "Иванова", Gender.ЖЕН, 165);
-        Actor actor3 = new Actor("Олег", "Табаков", Gender.МУЖ, 175);
+        Actor actor1 = new Actor("Олег", "Табаков", Gender.MALE, 175);
+        Actor actor2 = new Actor("Мария", "Иванова", Gender.FEMALE, 165);
+        Actor actor3 = new Actor("Олег", "Табаков", Gender.MALE, 175);
 
         System.out.println("\n--- Гамлет ---");
         Show drama = new Show("Гамлет", 120, dir);
@@ -17,7 +17,7 @@ public class Theatre {
         drama.printActorsList();
 
         System.out.println("\n--- Замена Иванова → Смирнова ---");
-        Actor newActor = new Actor("Анна", "Смирнова", Gender.ЖЕН, 168);
+        Actor newActor = new Actor("Анна", "Смирнова", Gender.FEMALE, 168);
         drama.replaceActor(newActor, "Иванова");
         drama.printActorsList();
 
@@ -26,7 +26,9 @@ public class Theatre {
         musical.printLibretto();
 
         System.out.println("\n--- Балет ---");
-        Ballet ballet = new Ballet("Лебединое озеро", 180, dir, "Чайковский", "Балет", "М. Петипа");
+        Person chaikovsky = new Person("Петр", "Чайковский", Gender.MALE);
+        Person choreographer = new Person("Мариус", "Петипа", Gender.MALE);
+        Ballet ballet = new Ballet("Лебединое озеро", 180, dir, chaikovsky, "Балет", choreographer);
         System.out.println("Хореограф: " + ballet.getChoreographer());
 
         System.out.println("\n--- Опера ---");
