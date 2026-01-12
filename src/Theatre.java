@@ -22,17 +22,19 @@ public class Theatre {
         drama.printActorsList();
 
         System.out.println("\n--- Мюзикл Чикаго ---");
-        MusicalShow musical = new MusicalShow("Чикаго", 150, dir, "Джон Кандер", "Мюзикл про гангстеров");
+        Person johnKander = new Person("Джон", "Кандер", Gender.MALE);
+        MusicalShow musical = new MusicalShow("Чикаго", 150, dir, johnKander, "Мюзикл про гангстеров");
         musical.printLibretto();
 
         System.out.println("\n--- Балет ---");
         Person chaikovsky = new Person("Петр", "Чайковский", Gender.MALE);
-        Person choreographer = new Person("Мариус", "Петипа", Gender.MALE);
-        Ballet ballet = new Ballet("Лебединое озеро", 180, dir, chaikovsky, "Балет", choreographer);
+        Person petipa = new Person("Мариус", "Петипа", Gender.MALE);
+        Ballet ballet = new Ballet("Лебединое озеро", 180, dir, chaikovsky, "Балет", petipa);
         System.out.println("Хореограф: " + ballet.getChoreographer());
 
         System.out.println("\n--- Опера ---");
-        Opera opera = new Opera("Кармен", 200, dir, "Бизе", "Опера", 40);
+        Person bizet = new Person("Жорж", "Бизе", Gender.MALE);
+        Opera opera = new Opera("Кармен", 200, dir, bizet, "Опера", 40);
         System.out.println("Размер хора: " + opera.getChoirSize());
     }
 }

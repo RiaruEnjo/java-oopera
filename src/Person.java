@@ -21,13 +21,11 @@ public class Person {
         return gender;
     }
 
-    @Override
-    public String toString() {
+    public String toString() {  // Без @Override
         return name + " " + surname;
     }
 
-    @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj) {  // Без @Override
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Person person = (Person) obj;
@@ -36,8 +34,7 @@ public class Person {
                 gender == person.gender;
     }
 
-    @Override
-    public int hashCode() {
+    public int hashCode() {  // Без @Override
         int result = name.hashCode();
         result = 31 * result + surname.hashCode();
         result = 31 * result + gender.hashCode();
