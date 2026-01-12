@@ -47,7 +47,6 @@ public class Show {
                 count++;
             }
         }
-
         if (count == 0) {
             System.out.println("Предупреждение: актёр с фамилией " + oldSurname + " не найден!");
             return;
