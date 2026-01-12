@@ -11,5 +11,7 @@ public class Director extends Person {
         return name + " " + surname;
     }
 
-    public int getNumberOfShows() { return numberOfShows; }
+    public int getNumberOfShows() {
+        return numberOfShows;
+    }
 }

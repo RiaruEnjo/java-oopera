@@ -6,5 +6,7 @@ public class Ballet extends MusicalShow {
         this.choreographer = choreographer;
     }
 
-    public String getChoreographer() { return choreographer; }
+    public String getChoreographer() {
+        return choreographer;
+    }
 }

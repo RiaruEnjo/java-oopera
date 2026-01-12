@@ -6,5 +6,7 @@ public class Opera extends MusicalShow {
         this.choirSize = choirSize;
     }
 
-    public int getChoirSize() { return choirSize; }
+    public int getChoirSize() {
+        return choirSize;
+    }
 }

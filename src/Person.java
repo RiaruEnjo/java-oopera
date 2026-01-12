@@ -9,9 +9,15 @@ public class Person {
         this.gender = gender;
     }
 
-    public String getName() { return name; }
-    public String getSurname() { return surname; }
-    public Gender getGender() { return gender; }
+    public String getName() {
+        return name;
+    }
+    public String getSurname() {
+        return surname;
+    }
+    public Gender getGender() {
+        return gender;
+    }
 
     @Override
     public boolean equals(Object obj) {
