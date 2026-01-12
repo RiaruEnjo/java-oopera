@@ -6,13 +6,13 @@ public class Theatre {
 
         Actor actor1 = new Actor("Олег", "Табаков", Gender.МУЖ, 175);
         Actor actor2 = new Actor("Мария", "Иванова", Gender.ЖЕН, 165);
-        Actor actor3 = new Actor("Олег", "Табаков", Gender.МУЖ, 175); // дубликат
+        Actor actor3 = new Actor("Олег", "Табаков", Gender.МУЖ, 175);
 
         System.out.println("\n--- Гамлет ---");
         Show drama = new Show("Гамлет", 120, dir);
         drama.addActor(actor1);
         drama.addActor(actor2);
-        drama.addActor(actor3); // дубликат → предупреждение!
+        drama.addActor(actor3);
         drama.printDirectorInfo();
         drama.printActorsList();
 
